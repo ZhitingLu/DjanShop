@@ -1,9 +1,9 @@
 from django.urls import path, include
-from rest_framework.routers import SimpleRouter
+from rest_framework import routers
 
 from . import views
 
-router = SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'', views.CategoryViewSet)
 
 urlpatterns = [
