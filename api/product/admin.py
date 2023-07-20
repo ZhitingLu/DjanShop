@@ -10,3 +10,8 @@ from .models import Product
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'description', 'category', 'price', 'stock', 'is_active', 'image']
     search_display = ['name', 'description']
+
+    def show_picture(self, obj):
+        return obj.show_picture()
+
+    show_picture.short_description = 'Icon'
