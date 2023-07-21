@@ -9,7 +9,7 @@ A django backend
 
 ## Requirements
 
-- Python 3+
+- Python 3.11+
 - Django 3.2+
 - Django Rest Framework 3.12+
 - Pipenv
@@ -33,6 +33,11 @@ cd DjanShop
 ```bash
 pipenv install --dev
 ```
+
+-- If you need to install pipenv:
+  ```bash
+pip install --user pipenv
+  ```
 
 4. Activate the virtual environment:
 
