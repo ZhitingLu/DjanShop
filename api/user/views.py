@@ -9,6 +9,8 @@ from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, logout
 
+from .serializers import CustomUserSerializer
+
 import random
 # Create your views here.
 
@@ -68,3 +70,15 @@ def signin(request):
     except UserModel.DoesNotExist:
         return JsonResponse({'error': 'Invalid Email'})
 
+
+class UserViewSet(viewsets.ModelViewSet):
+    permission_classes_by_action = {'create': [AllowAny]}
+
+    queryset = CustomUser.objects.all().order_by('id')
+    serializer_class = CustomUserSerializer
+
+    def get_permissions(self):
+        try:
+            return [permission() for permission in self.permission_classes_by_action[self.action]]
+        except KeyError:
+            return [permission() for permission in self.permission_classes]
