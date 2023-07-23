@@ -5,7 +5,7 @@
 [![Django Rest Framework Version](https://img.shields.io/badge/Django%20Rest%20Framework-3.12+-red.svg)](https://www.django-rest-framework.org/)
 
 ## Description
-A django backend 
+A Django-React ecommerce app backend
 
 ## Requirements
 
