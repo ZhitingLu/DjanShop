@@ -8,8 +8,8 @@ from .models import Product
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description', 'category', 'price', 'stock', 'is_active', 'image']
-    search_display = ['name', 'description']
+    list_display = ['id', 'name', 'description', 'category', 'price', 'stock', 'is_active', 'image']
+    search_display = ['id', 'name', 'description']
 
     def show_picture(self, obj):
         return obj.show_picture()
