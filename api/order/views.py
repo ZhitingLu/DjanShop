@@ -18,9 +18,9 @@ def validate_user_session(id, token):
         return False
 
 
-
 @csrf_exempt
 def add(request, id, token):
+    # check if the user is authenticated
     if not validate_user_session(id, token):
         return JsonResponse({'error': 'Please login',
                              'code': '500'})
@@ -57,4 +57,3 @@ def add(request, id, token):
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all().order_by('-id')
     serializer_class = OrderSerializer
-    
