@@ -14,12 +14,13 @@ private_key = config('BRAINTREE_PRIVATE_KEY')
 
 gateway = braintree.BraintreeGateway(
   braintree.Configuration(
-      environment,
+      braintree.Environment.Sandbox,
       merchant_id=merchant_id,
       public_key=public_key,
       private_key=private_key
   )
 )
+
 
 def validate_user_session(id, token):
     UserModel = get_user_model()
@@ -75,4 +76,3 @@ def process_payment(request, id, token):
             'error': True,
             'success': False
         })
-    
